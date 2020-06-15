@@ -1,0 +1,30 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: $m-size;
+    //background-color: $dark-blue;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+}
+
+.is-active {
+    font-weight: bold;
+}
+
+.header-navlink {
+    text-decoration: none;
+    color: darkgreen;
+}
+
+.expense-description-link {
+    text-decoration: none;
+}
