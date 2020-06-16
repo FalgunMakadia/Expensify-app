@@ -9,7 +9,7 @@ const ExpenseList = (props) => {
     return (
         <div>
             <h2>Your Expenses:</h2><hr />
-            {props.expenses.map((expense) => {
+            {props.expenses.length === 0 ? <h3>No Expenses so far! </h3> : props.expenses.map((expense) => {
                 return <ExpenseListItem key={expense.id} expense={expense} />
             })}
         </div>
