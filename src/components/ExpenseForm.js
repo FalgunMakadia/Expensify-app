@@ -31,8 +31,9 @@ export default class ExpenseForm extends React.Component {
     }
     onAmountChange = (e) => {
         const amount = e.target.value
-        if(amount.match(/^\d{1,}(\.\d{0,2})?$/))
-        this.setState(() => ({ amount }) )
+        if(amount.match(/^\d{0,}(\.\d{0,2})?$/)){
+            this.setState(() => ({ amount }) )
+        }
     }
     onDateChange = (createdAt) => {     // We get the date value, user chooses into this function argument (createdAt here)
         if(createdAt) {
@@ -45,12 +46,12 @@ export default class ExpenseForm extends React.Component {
     onSubmit = (e) => {
         e.preventDefault()
         if(!this.state.description || !this.state.amount) {
-            return this.setState(() => ({ error: 'Please Enter Description and Amount both!' }) )
+            return this.setState(() => ({ error: 'Description and Amount both are required.' }) )
         } else {
             this.setState(() => ({ error: '' }) )
             this.props.onSubmit({
                 description: this.state.description,
-                amount: parseInt(this.state.amount),
+                amount: parseFloat(this.state.amount),
                 createdAt: this.state.createdAt.valueOf(),
                 note: this.state.note
             })
